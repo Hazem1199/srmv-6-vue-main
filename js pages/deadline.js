@@ -202,6 +202,7 @@ async function showDeadlines(id) {
         const groupToPass = sessionStorage.getItem("groupToPass");
         const user = localStorage.getItem("myCode");
         const first = tableBody.firstChild;
+        console.log(first);
 
         // Get the "SelectDueDate" element.
         const selectDueDate = document.querySelector("#SelectDueDate");
@@ -226,9 +227,9 @@ async function showDeadlines(id) {
         }
 
         if (first) {
-          fresh.value = "Student";
-        } else {
           fresh.value = "Fresh";
+        } else {
+          fresh.value = "Student";
         }
       });
 

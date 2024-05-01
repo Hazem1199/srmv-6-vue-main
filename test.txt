@@ -61,3 +61,76 @@ async function showGroup(id) {
     footer4.textContent = 'No upcoming deadlines';
   }
 }
+
+
+
+
+
+
+<div class="card text-center mx-2" style="width: 18rem">
+                <img
+                  src="/imgs/srm.jpg"
+                  style="height: 200px"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">SRM V-5</h5>
+                </div>
+                <div style="display: flex; justify-content: center">
+                  <mark style="width: 90%; border-radius: 10px; font-size: 14px"
+                    ><q>Using It by Coord Email</q></mark
+                  >
+                </div>
+
+                <div class="card-body">
+                  <a
+                    href="https://www.appsheet.com/start/7b8da226-47b1-41e7-893d-1bfe8c01173e?platform=desktop#viewStack[0][identifier][Type]=Control&viewStack[0][identifier][Name]=SRM&appName=BrooklynSRM-880291567"
+                    class="card-link btn btn-primary"
+                    target="_blank"
+                    >Use It</a
+                  >
+                  <button
+                    class="card-link btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+                  </button>
+
+                  <div
+                    class="modal fade"
+                    id="exampleModal"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="alertMsg"></div>
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <iframe
+                            src="https://drive.google.com/file/d/1d7Ewc86NGsk9KV4UrAa2ed23RFIZkKzq/preview"
+                            width="450"
+                            height="315"
+                            frameborder="0"
+                            allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
