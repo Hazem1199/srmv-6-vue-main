@@ -134,13 +134,12 @@
           <div class="box">
             <div class="d-flex w-100 createProject">
               <h2 class="mt-2 mb-1 mx-4 fw-bold">One Time Task</h2>
+              <!-- Add task btn  -->
+              <button type="button" class="btn button mx-1" data-bs-toggle="modal" data-bs-target="#taskNameModal">
 
-              <button @click="createTask()" type="button" class="btn button mx-1">
                 <iconify-icon class="qrIcon mx-1" icon="bi:list-task" width="23" height="23"></iconify-icon>
                 <p class="mb-0">Add Task</p>
               </button>
-
-              <!-- Add task btn  -->
             </div>
             <!-- <button id="openPopupButton">Add Complaint</button> -->
             <div id="popupContainer">
@@ -247,7 +246,70 @@
         </div>
       </div>
     </div>
+
+    <!-- start modal  -->
+
+
+    <div class="modal fade" id="taskNameModal" tabindex="-1" aria-labelledby="taskNameModalLabel" style="display: none;"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="taskNameModalLabel">Create task</h5><button type="button" class="btn-close"
+              data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label class="form-label" for="taskName">Name</label>
+                <input type="text" id="taskName" class="form-control" required="">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="taskDescription">Description</label>
+                <input type="text" id="taskDescription" class="form-control" required="">
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="taskProject">Project List</label>
+                <select id="taskProject" class="form-select" required="">
+                  <option value="" selected="">Select a project</option>
+                  <option v-for="project in state.projects" :value="project.name">{{ project.name }}
+                  </option>
+                </select>
+
+              </div>
+              <button id="advancedButton" class="btn btn-outline-secondary btn-sm mt-3">Advanced Setting</button>
+              <div class="advancedOptions d-none">
+                <div class="mb-3">
+                  <label class="form-label" for="taskFrom">From</label>
+                  <input type="datetime-local" id="taskFrom" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="taskTo">To</label>
+                  <input type="datetime-local" id="taskTo" class="form-control">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="d-flex justify-content-center">
+              <div class="btn-group" role="group" aria-label="taskModalButtonGroup"> <button type="button"
+                  class="btn btn-primary" id="createButton">Create<span class="spinner-border spinner-border-sm ms-2"
+                    :class="{ 'd-none': spinnerShow }" role="status" aria-hidden="true"></span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- end modal  -->
+
+
   </div>
+
+
+
+
   <script src="./bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
   <script src="./bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>

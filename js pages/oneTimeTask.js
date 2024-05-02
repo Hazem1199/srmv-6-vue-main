@@ -109,93 +109,20 @@ const App = {
     //   }
     // };
 
+    const spinnerShow = ref(false);
+
     // // Function to create a new task
 
     const createTask = async () => {
-      const modal = document.createElement("div");
-      modal.classList.add("modal", "fade");
-      modal.setAttribute("id", "taskNameModal");
-      modal.setAttribute("tabindex", "-1");
-      modal.setAttribute("role", "dialog");
-      modal.setAttribute("aria-labelledby", "taskNameModalLabel");
-      modal.setAttribute("aria-hidden", "true");
-
-      const dialog = document.createElement("div");
-      dialog.classList.add("modal-dialog", "modal-dialog-centered");
-
-      const content = document.createElement("div");
-      content.classList.add("modal-content");
-
-      const header = document.createElement("div");
-      header.classList.add("modal-header");
-      header.innerHTML = `<h5 class="modal-title" id="taskNameModalLabel">Create task</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>`;
-
-      const body = document.createElement("div");
-      body.classList.add("modal-body");
-      body.innerHTML = `<form>
-        <div class="mb-3">
-          <label class="form-label" for="taskName">Name</label>
-          <input type="text" id="taskName" class="form-control" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="taskDescription">Description</label>
-          <input type="text" id="taskDescription" class="form-control" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label" for="taskProject">Project List</label>
-          <select @click="populateProjectList()" id="taskProject" class="form-select" required>
-            
-          </select>
-
-        </div>
-        <button id="advancedButton" class="btn btn-outline-secondary btn-sm mt-3">Advanced Setting</button>
-        <div class="advancedOptions d-none">
-          <div class="mb-3">
-            <label class="form-label" for="taskFrom">From</label>
-            <input type="datetime-local" id="taskFrom" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label class="form-label" for="taskTo">To</label>
-            <input type="datetime-local" id="taskTo" class="form-control">
-          </div>
-        </div>
-      </form>`;
-
-      const footer = document.createElement("div");
-      footer.classList.add("modal-footer");
-      footer.innerHTML = `<div class="d-flex justify-content-center"><div class="btn-group" role="group" aria-label="taskModalButtonGroup"> <button type="button" class="btn btn-primary" id="createButton">Create</button> </div></div>`;
-      content.appendChild(header);
-      content.appendChild(body);
-      content.appendChild(footer);
-      dialog.appendChild(content);
-      modal.appendChild(dialog);
-
-      document.body.appendChild(modal);
-
-      const taskModal = new bootstrap.Modal(modal);
-      taskModal.show();
-
       const user = localStorage.getItem("myCode");
       const alertMsg = document.querySelector(".alertMsg");
       const formCheck = document.querySelector(".formCheck");
-
-      const createBtn = modal.querySelector("#createButton");
-      const spinner = document.createElement("span");
-      spinner.classList.add(
-        "spinner-border",
-        "spinner-border-sm",
-        "ms-2",
-        "d-none"
-      );
-      spinner.setAttribute("role", "status");
-      spinner.setAttribute("aria-hidden", "true");
-      createBtn.appendChild(spinner);
 
       modal
         .querySelector("#createButton")
         .addEventListener("click", async (e) => {
           e.preventDefault();
-          spinner.classList.remove("d-none");
+          spinnerShow.value = true;
 
           const newName = modal.querySelector("#taskName").value;
           const newDescription = modal.querySelector("#taskDescription").value;
